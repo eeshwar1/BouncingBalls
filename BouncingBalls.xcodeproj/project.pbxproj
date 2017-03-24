@@ -13,6 +13,9 @@
 		6564F0271E7F3E45001CC008 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6564F0251E7F3E45001CC008 /* Main.storyboard */; };
 		6564F0321E7F3E45001CC008 /* BouncingBallsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6564F0311E7F3E45001CC008 /* BouncingBallsTests.swift */; };
 		6564F03D1E7F3E45001CC008 /* BouncingBallsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6564F03C1E7F3E45001CC008 /* BouncingBallsUITests.swift */; };
+		6564F04B1E7F3E59001CC008 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6564F04A1E7F3E59001CC008 /* Ball.swift */; };
+		6564F04D1E7F3E76001CC008 /* BouncingBallsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6564F04C1E7F3E76001CC008 /* BouncingBallsView.swift */; };
+		659D60A21E8200D00078E76A /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659D60A11E8200D00078E76A /* Core.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		6564F0381E7F3E45001CC008 /* BouncingBallsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BouncingBallsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6564F03C1E7F3E45001CC008 /* BouncingBallsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncingBallsUITests.swift; sourceTree = "<group>"; };
 		6564F03E1E7F3E45001CC008 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6564F04A1E7F3E59001CC008 /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ball.swift; path = ../Ball.swift; sourceTree = "<group>"; };
+		6564F04C1E7F3E76001CC008 /* BouncingBallsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BouncingBallsView.swift; sourceTree = SOURCE_ROOT; };
+		659D60A11E8200D00078E76A /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,9 @@
 		6564F01E1E7F3E45001CC008 /* BouncingBalls */ = {
 			isa = PBXGroup;
 			children = (
+				6564F04C1E7F3E76001CC008 /* BouncingBallsView.swift */,
+				6564F04A1E7F3E59001CC008 /* Ball.swift */,
+				659D60A11E8200D00078E76A /* Core.swift */,
 				6564F01F1E7F3E45001CC008 /* AppDelegate.swift */,
 				6564F0211E7F3E45001CC008 /* ViewController.swift */,
 				6564F0231E7F3E45001CC008 /* Assets.xcassets */,
@@ -255,7 +264,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6564F04D1E7F3E76001CC008 /* BouncingBallsView.swift in Sources */,
+				6564F04B1E7F3E59001CC008 /* Ball.swift in Sources */,
 				6564F0221E7F3E45001CC008 /* ViewController.swift in Sources */,
+				659D60A21E8200D00078E76A /* Core.swift in Sources */,
 				6564F0201E7F3E45001CC008 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +508,7 @@
 				6564F0431E7F3E45001CC008 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6564F0441E7F3E45001CC008 /* Build configuration list for PBXNativeTarget "BouncingBallsTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +517,7 @@
 				6564F0461E7F3E45001CC008 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6564F0471E7F3E45001CC008 /* Build configuration list for PBXNativeTarget "BouncingBallsUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +526,7 @@
 				6564F0491E7F3E45001CC008 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
