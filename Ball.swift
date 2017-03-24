@@ -20,6 +20,7 @@ class  Ball
     var xDirection: CGFloat
     var yDirection: CGFloat
     var id: Int
+    var displayID: Bool
     var path: NSBezierPath
     
     init(center: CGPoint, radius: CGFloat, color: NSColor, id: Int)
@@ -31,6 +32,7 @@ class  Ball
         self.xDirection = 1.0
         self.yDirection = 1.0
         self.id = id
+        self.displayID = true
         self.path = NSBezierPath()
         
         self.setupPath()
@@ -54,6 +56,10 @@ class  Ball
         self.setupPath()
     }
     
+    func setDisplayID(displayID: Bool)
+    {
+        self.displayID = displayID
+    }
     func draw()
     {
         
@@ -63,10 +69,15 @@ class  Ball
         self.path.stroke()
         self.path.fill()
         
-        let context = NSGraphicsContext.current()?.cgContext
         
+        
+        
+        if self.displayID == true
+        {
             
-        centerText(text: String(self.id), origin: self.center, context: context!, radius: 0 , angle: 0, color: NSColor.black, font: NSFont.systemFont(ofSize: 16), slantAngle: CGFloat(M_PI_4))
+            let context = NSGraphicsContext.current()?.cgContext
+            centerText(text: String(self.id), origin: self.center, context: context!, radius: 0 , angle: 0, color: NSColor.black, font: NSFont.systemFont(ofSize: 16), slantAngle: CGFloat(M_PI_4))
+        }
         
         
     }

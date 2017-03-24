@@ -165,6 +165,13 @@ class BouncingBallsView: NSView {
         
     }
     
+    func setDisplayID(displayID: Bool)
+    {
+        for ball in self.balls
+        {
+            ball.setDisplayID(displayID: displayID)
+        }
+    }
     func getBallCount() -> Int{
         
         return self.balls.count

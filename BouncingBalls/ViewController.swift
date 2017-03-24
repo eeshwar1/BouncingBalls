@@ -12,9 +12,9 @@ class ViewController: NSViewController {
     
     var timer = Timer()
     
-
-    
     @IBOutlet var tableView: NSTableView!
+    
+    @IBOutlet var checkboxDisplayID: NSButton!
     
     @IBOutlet var bouncingBallsView: BouncingBallsView!
    
@@ -104,6 +104,12 @@ class ViewController: NSViewController {
         self.bouncingBallsView.setSpeed(speed: CGFloat(sliderSpeed.floatValue))
         
         labelSpeed.stringValue = String(format: "%.0f",sliderSpeed.floatValue)
+    }
+    
+    
+    @IBAction func clickDisplayIDCheckbox(_ sender: Any) {
+        self.bouncingBallsView.setDisplayID(displayID: self.checkboxDisplayID.state == NSOnState ? true: false)
+        
     }
     
     @IBAction func sliderSizeChanged(_ sender: Any) {
