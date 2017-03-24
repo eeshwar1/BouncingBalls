@@ -9,6 +9,7 @@
 import Foundation
 import Cocoa
 
+
 class  Ball
 {
     
@@ -18,9 +19,10 @@ class  Ball
     var fillColor: NSColor
     var xDirection: CGFloat
     var yDirection: CGFloat
+    var sequence: Int
     var path: NSBezierPath
     
-    init(center: CGPoint, radius: CGFloat, color: NSColor)
+    init(center: CGPoint, radius: CGFloat, color: NSColor, sequence: Int)
     {
         self.center = center
         self.radius = radius
@@ -28,18 +30,28 @@ class  Ball
         self.fillColor = color
         self.xDirection = 1.0
         self.yDirection = 1.0
+        self.sequence = sequence
+        self.path = NSBezierPath()
+        
+        self.setupPath()
+    }
+
+    func setupPath()
+    {
         
         let bounds: NSRect = NSRect(x: center.x - radius, y: center.y - radius, width: 2 * radius, height: 2 * radius)
         
         self.path = NSBezierPath(ovalIn: bounds)
+        
+        
+     
     }
+    
     
     func setRadius(radius: CGFloat)
     {
         self.radius = radius
-        let bounds: NSRect = NSRect(x: center.x - radius, y: center.y - radius, width: 2 * radius, height: 2 * radius)
-        
-        self.path = NSBezierPath(ovalIn: bounds)
+        self.setupPath()
     }
     
     func draw()
@@ -50,6 +62,12 @@ class  Ball
         
         self.path.stroke()
         self.path.fill()
+        
+        let context = NSGraphicsContext.current()?.cgContext
+        
+            
+        centerText(text: String(sequence), origin: self.center, context: context!, radius: 0 , angle: 0, color: NSColor.black, font: NSFont.systemFont(ofSize: 16), slantAngle: CGFloat(M_PI_4))
+        
         
     }
     
@@ -76,12 +94,15 @@ class  Ball
         
      
         self.path.transform(using: transform)
-      
+        
+        self.center = self.center.applying(CGAffineTransform(translationX: xDirection * dx, y: yDirection * dy))
+   
  
     }
 
     func collide(ball: Ball) -> Bool
     {
+        
         if self.path.bounds.intersects(ball.path.bounds)
         {
             return true

@@ -13,10 +13,13 @@ class ViewController: NSViewController {
     var timer = Timer()
     
 
-    @IBOutlet var bouncingBallsView: BouncingBallsView!
-    @IBOutlet var buttonStart: NSButton!
     
-    @IBOutlet var buttonStop: NSButton!
+    @IBOutlet var tableView: NSTableView!
+    
+    @IBOutlet var bouncingBallsView: BouncingBallsView!
+   
+    
+    @IBOutlet var buttonStartStop: NSButton!
     
     @IBOutlet var sliderSpeed: NSSlider!
     
@@ -25,6 +28,8 @@ class ViewController: NSViewController {
     @IBOutlet var labelSpeed: NSTextField!
     
     @IBOutlet var labelSize: NSTextField!
+    
+    @IBOutlet var labelBallCount: NSTextField!
     
     override func viewDidLoad() {
        
@@ -41,28 +46,58 @@ class ViewController: NSViewController {
         labelSpeed.stringValue = String(format: "%.0f",sliderSpeed.floatValue)
         
         labelSize.stringValue = String(format: "%.0f",sliderSize.floatValue)
+        
+        labelBallCount.stringValue = String(self.bouncingBallsView.balls.count)
+        
+        self.startTimer()
+        self.buttonStartStop.title = "Stop"
+        
+        tableView.delegate = self
+        tableView.dataSource = self
     }
-
+    
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
         }
     }
-    @IBAction func clickStart(_ sender: Any) {
-     
-        timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(ViewController.animateScene), userInfo: nil, repeats: true)
-        buttonStart.isEnabled = false
-        buttonStop.isEnabled = true
+    
+    @IBAction func clickStartStop(_ sender: Any) {
+        
+        if buttonStartStop.title == "Start"
+        {
+            
+            self.startTimer()
+            buttonStartStop.title = "Stop"
+        }
+        else
+        {
+            self.stopTimer()
+            buttonStartStop.title = "Start"
+            
+        }
+        
+    }
+    func startTimer()
+    {
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.animateScene), userInfo: nil, repeats: true)
         
     }
     
-    @IBAction func clickStop(_ sender: Any) {
+    func stopTimer()
+    {
         
         timer.invalidate()
-        buttonStop.isEnabled = false
-        buttonStart.isEnabled = true
     }
+
     
+    @IBAction func clickAddBall(_ sender: Any) {
+        
+        let _ = self.bouncingBallsView.addBall()
+        
+        labelBallCount.stringValue = String(self.bouncingBallsView.balls.count)
+    }
     @IBAction func sliderSpeedChanged(_ sender: Any)
     {
         
@@ -80,16 +115,58 @@ class ViewController: NSViewController {
     }
     func animateScene()
     {
-        DispatchQueue.main.async(
-            
-        execute: {
-            
-            // write code
-            self.bouncingBallsView.animateScene()
-            
-        })
-       
+        
+        self.bouncingBallsView.animateScene()
+        self.tableView.reloadData()
      
       
     }
 }
+
+extension ViewController: NSTableViewDataSource
+{
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return self.bouncingBallsView.getBallCount()
+    }
+    
+}
+
+extension ViewController: NSTableViewDelegate
+{
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    
+        
+        var text: String = ""
+        var cellIdentifier: String = ""
+        
+        let ball = self.bouncingBallsView.balls[row]
+        
+       if tableColumn == tableView.tableColumns[0]
+       {
+        text = "(\(String(format: "%.0f",ball.center.x)),\((String(format: "%.0f",ball.center.y))))"
+            cellIdentifier = "ballCenter"
+        
+        }
+        if tableColumn == tableView.tableColumns[1]
+        {
+            text = String(describing: ball.radius)
+            cellIdentifier = "ballRadius"
+            
+        }
+      
+        
+        if let cell = tableView.make(withIdentifier: cellIdentifier, owner: nil) as? NSTableCellView
+        {
+            cell.textField?.stringValue = text
+            return cell
+        }
+        else
+        {
+            print("Column: \(tableColumn), ERROR making cell")
+            return nil
+        }
+    }
+    
+}
+
