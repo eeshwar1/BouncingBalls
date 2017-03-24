@@ -665,8 +665,8 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                    <window key="window" title="Bouncing Balls" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES" unifiedTitleAndToolbar="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -767,11 +767,11 @@
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbm-Qe-38r">
                                 <rect key="frame" x="727" y="77" width="265" height="208"/>
                                 <clipView key="contentView" id="e65-aT-gLY">
-                                    <rect key="frame" x="1" y="0.0" width="263" height="192"/>
+                                    <rect key="frame" x="1" y="0.0" width="263" height="207"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="aeV-4L-aKI" viewBased="YES" id="tOW-QP-q69">
-                                            <rect key="frame" x="0.0" y="0.0" width="263.5" height="169"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="263" height="184"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="2" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -791,7 +791,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="igZ-0g-OpI">
-                                                            <rect key="frame" x="1" y="1" width="62.5" height="17"/>
+                                                            <rect key="frame" x="1" y="1" width="62" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQE-YY-0HH">
@@ -828,7 +828,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="D1n-d8-ntH">
-                                                            <rect key="frame" x="65.5" y="1" width="92.5" height="17"/>
+                                                            <rect key="frame" x="65.5" y="1" width="92" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFt-FB-NqY">
@@ -851,7 +851,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="ballRadius" width="102.5" minWidth="40" maxWidth="1000" id="QVQ-6S-XL1">
+                                                <tableColumn identifier="ballRadius" width="102" minWidth="40" maxWidth="1000" id="QVQ-6S-XL1">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Radius">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -865,7 +865,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="xEw-IU-Ng8">
-                                                            <rect key="frame" x="160" y="1" width="102.5" height="17"/>
+                                                            <rect key="frame" x="160" y="1" width="102" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZX-RX-JsD">
@@ -892,7 +892,7 @@
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="z3c-p3-V4Q">
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="z3c-p3-V4Q">
                                     <rect key="frame" x="1" y="192" width="263" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -901,7 +901,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="aeV-4L-aKI">
-                                    <rect key="frame" x="0.0" y="0.0" width="263.5" height="23"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="263" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
@@ -923,6 +923,19 @@
                                     <action selector="sliderSizeChanged:" target="XfG-lQ-9wD" id="XcJ-E5-ZCv"/>
                                 </connections>
                             </slider>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="Bdj-wT-iix">
+                                <rect key="frame" x="740" y="313" width="134" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="G3K-2X-txJ"/>
+                                </constraints>
+                                <buttonCell key="cell" type="check" title="Display ID" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Kgh-Nr-fhb">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="clickDisplayIDCheckbox:" target="XfG-lQ-9wD" id="JeP-zc-Hi9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="hPF-wn-q74" firstAttribute="trailing" secondItem="Kac-6h-JoV" secondAttribute="trailing" id="1Wf-Iq-BY7"/>
@@ -948,7 +961,9 @@
                             <constraint firstItem="TnP-1Z-aeO" firstAttribute="leading" secondItem="Zbm-Qe-38r" secondAttribute="leading" constant="-718" id="gVj-bI-H9b"/>
                             <constraint firstItem="ejz-ci-WQa" firstAttribute="leading" secondItem="TnP-1Z-aeO" secondAttribute="trailing" constant="38" id="nxr-Xx-bxz"/>
                             <constraint firstItem="CSn-bK-3Zn" firstAttribute="leading" secondItem="HkM-GM-vK1" secondAttribute="leading" id="odG-xw-hlP"/>
+                            <constraint firstItem="Bdj-wT-iix" firstAttribute="leading" secondItem="K9c-f2-jXk" secondAttribute="leading" id="pge-Ej-0wo"/>
                             <constraint firstItem="TnP-1Z-aeO" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="9" id="pnJ-Vm-isq"/>
+                            <constraint firstItem="Zbm-Qe-38r" firstAttribute="top" secondItem="Bdj-wT-iix" secondAttribute="bottom" constant="30" id="pwo-IB-aFb"/>
                             <constraint firstItem="DUc-z3-4iM" firstAttribute="leading" secondItem="K9c-f2-jXk" secondAttribute="leading" id="vMt-oj-4rU"/>
                             <constraint firstItem="HkM-GM-vK1" firstAttribute="trailing" secondItem="K9c-f2-jXk" secondAttribute="trailing" id="w9R-JQ-XeJ"/>
                             <constraint firstItem="hPF-wn-q74" firstAttribute="leading" secondItem="Kac-6h-JoV" secondAttribute="leading" id="z6b-S9-aQt"/>
@@ -959,6 +974,7 @@
                     <connections>
                         <outlet property="bouncingBallsView" destination="TnP-1Z-aeO" id="kub-Pk-XSW"/>
                         <outlet property="buttonStartStop" destination="ejz-ci-WQa" id="j15-hN-hQB"/>
+                        <outlet property="checkboxDisplayID" destination="Bdj-wT-iix" id="t6m-oN-IYa"/>
                         <outlet property="labelBallCount" destination="CDT-gg-mCG" id="h7L-JB-fVq"/>
                         <outlet property="labelSize" destination="Kac-6h-JoV" id="PAx-10-vHf"/>
                         <outlet property="labelSpeed" destination="hPF-wn-q74" id="nTo-yN-HSg"/>
