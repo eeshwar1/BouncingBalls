@@ -142,15 +142,22 @@ extension ViewController: NSTableViewDelegate
         
         let ball = self.bouncingBallsView.balls[row]
         
-       if tableColumn == tableView.tableColumns[0]
+        
+        if tableColumn == tableView.tableColumns[0]
+        {
+            text = String(describing: ball.id)
+            cellIdentifier = "ballID"
+            
+        }
+       if tableColumn == tableView.tableColumns[1]
        {
         text = "(\(String(format: "%.0f",ball.center.x)),\((String(format: "%.0f",ball.center.y))))"
             cellIdentifier = "ballCenter"
         
         }
-        if tableColumn == tableView.tableColumns[1]
+        if tableColumn == tableView.tableColumns[2]
         {
-            text = String(describing: ball.radius)
+            text = String(format: "%.0f", ball.radius)
             cellIdentifier = "ballRadius"
             
         }

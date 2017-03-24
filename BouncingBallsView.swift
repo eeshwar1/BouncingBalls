@@ -80,7 +80,7 @@ class BouncingBallsView: NSView {
             let colorIndex = randomNumber(MIN: 0, MAX: ColorNames.count)
             
             
-            let ball = Ball(center: CGPoint(x: centerX, y: centerY), radius: CGFloat(radiusValue), color: ColorNames[colorIndex], sequence: balls.count + 1)
+            let ball = Ball(center: CGPoint(x: centerX, y: centerY), radius: CGFloat(radiusValue), color: ColorNames[colorIndex], id: balls.count + 1)
             
             
             var collideFlag = false

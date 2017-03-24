@@ -19,10 +19,10 @@ class  Ball
     var fillColor: NSColor
     var xDirection: CGFloat
     var yDirection: CGFloat
-    var sequence: Int
+    var id: Int
     var path: NSBezierPath
     
-    init(center: CGPoint, radius: CGFloat, color: NSColor, sequence: Int)
+    init(center: CGPoint, radius: CGFloat, color: NSColor, id: Int)
     {
         self.center = center
         self.radius = radius
@@ -30,7 +30,7 @@ class  Ball
         self.fillColor = color
         self.xDirection = 1.0
         self.yDirection = 1.0
-        self.sequence = sequence
+        self.id = id
         self.path = NSBezierPath()
         
         self.setupPath()
@@ -66,7 +66,7 @@ class  Ball
         let context = NSGraphicsContext.current()?.cgContext
         
             
-        centerText(text: String(sequence), origin: self.center, context: context!, radius: 0 , angle: 0, color: NSColor.black, font: NSFont.systemFont(ofSize: 16), slantAngle: CGFloat(M_PI_4))
+        centerText(text: String(self.id), origin: self.center, context: context!, radius: 0 , angle: 0, color: NSColor.black, font: NSFont.systemFont(ofSize: 16), slantAngle: CGFloat(M_PI_4))
         
         
     }
